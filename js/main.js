@@ -69,7 +69,7 @@ function init() {
   mixer = new THREE.AnimationMixer(scene);
 
   loader = new THREE.GLTFLoader();
-  loader.load("../models/Skirt_anim.gltf", function(gltf) {
+  loader.load("../models/Skirt_anim rotation.gltf", function(gltf) {
     scene.add(gltf.scene);
 
     scene.traverse(function(x) {
@@ -78,15 +78,17 @@ function init() {
         x.receiveShadow = true;
         /*x.position.x = -2;
         x.position.y = -6;
-        x.position.z = 2;*/
-        x.position.y = -6;
+        x.position.z = 2;
+        x.position.y = -6;*/
         x.scale.set(7, 7, 7);
         //console.log(x);
       }
     });
     clipes.push(THREE.AnimationClip.findByName(gltf.animations, "KeyAction"));
+    clipes.push(THREE.AnimationClip.findByName(gltf.animations, "Rotate"));
     let plane = scene.getObjectByName("Plane");
     clipes.forEach(clipe => {
+      mixer.clipAction(clipe).setLoop(THREE.LoopPingPong);
       mixer.clipAction(clipe).play();
       mixer.clipAction(clipe).paused = false;
       mixer.clipAction(clipe).timeScale = 1;
@@ -94,6 +96,7 @@ function init() {
   });
 
   controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls.enableZoom = false;
   /*controls.target.set(3, 0, -3);
   controls.update();*/
 
