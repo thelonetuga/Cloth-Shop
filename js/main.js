@@ -9,6 +9,7 @@ let controls;
 let clock;
 let mixer;
 let clipes;
+let texture;
 
 init();
 animate();
@@ -69,10 +70,14 @@ function init() {
         x.position.y = -6;*/
         x.scale.set(7, 7, 7);
         //console.log(x);
+        if (x.name === "Cylinder") {
+          x.material.color = new THREE.Color(1, 1, 1);
+          texture = x.material.clone();
+        }
       }
     });
     clipes.push(THREE.AnimationClip.findByName(gltf.animations, "KeyAction"));
-    let plane = scene.getObjectByName("Plane");
+
     clipes.forEach(clipe => {
       mixer.clipAction(clipe).setLoop(THREE.LoopPingPong);
       mixer.clipAction(clipe).play();
@@ -82,12 +87,20 @@ function init() {
     clipes.push(THREE.AnimationClip.findByName(gltf.animations, "Rotation"));
   });
 
-  document.getElementById("btn_play").addEventListener("click", function() {
+  /*document.getElementById("btn_play").addEventListener("click", function() {
     let clipe = clipes.find(clipe => clipe.name === "Rotation");
     mixer.clipAction(clipe).setLoop(THREE.LoopPingPong);
     mixer.clipAction(clipe).play();
     mixer.clipAction(clipe).paused = false;
     mixer.clipAction(clipe).timeScale = 1;
+  });*/
+  document.getElementById("btn_play").addEventListener("click", function() {
+    clipes.forEach(clipe => {
+      mixer.clipAction(clipe).setLoop(THREE.LoopPingPong);
+      mixer.clipAction(clipe).play();
+      mixer.clipAction(clipe).paused = false;
+      mixer.clipAction(clipe).timeScale = 1;
+    });
   });
 
   document.getElementById("btn_pause").addEventListener("click", function() {
@@ -113,9 +126,35 @@ function init() {
   luzPonto1.shadow.camera.fov = 30;
   scene.add(luzPonto1);
 
-  var pointLightHelper = new THREE.SpotLightHelper(luzPonto1, 1, "green");
-  scene.add(pointLightHelper);
-  var option = $(this).attr("data-isotope-option");
+  /*let pointLightHelper = new THREE.SpotLightHelper(luzPonto1, 1, "green");
+  scene.add(pointLightHelper);*/
+  var sortingButtons = $(".product_sorting_btn");
+  sortingButtons.each(function() {
+    $(this).on("click", function() {
+      var parent = $(this)
+        .parent()
+        .parent()
+        .find(".sorting_text");
+      parent.text($(this).text());
+      var option = $(this).attr("data-isotope-option");
+      option = JSON.parse(option);
+      changeColor(option.color);
+    });
+  });
+}
+
+function changeColor(colorN) {
+  let alvo = scene.getObjectByName("Cylinder");
+  let material;
+  console.log(colorN);
+  console.log(alvo);
+  if (colorN === "texture") {
+    alvo.material = texture.clone();
+  } else {
+    let color = new THREE.Color(colorN);
+    alvo.material.color = color;
+    /*material = new THREE.MeshStandardMaterial({ color: color });*/
+  }
 }
 
 function animate() {
