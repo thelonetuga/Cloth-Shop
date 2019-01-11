@@ -64,7 +64,7 @@ function init() {
   mixer = new THREE.AnimationMixer(scene);
 
   loader = new THREE.GLTFLoader();
-  loader.load("../models/Jacket_anim_rotation.gltf", function(gltf) {
+  loader.load("./models/Jacket_anim_rotation.gltf", function(gltf) {
     scene.add(gltf.scene);
     scene.traverse(function(x) {
       if (x.isMesh) {
