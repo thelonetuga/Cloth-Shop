@@ -84,7 +84,7 @@ function init() {
       mixer.clipAction(clipe).paused = false;
       mixer.clipAction(clipe).timeScale = 1;
     });
-    clipes.push(THREE.AnimationClip.findByName(gltf.animations, "Rotation"));
+    clipes.push(THREE.AnimationClip.findByName(gltf.animations, "rotation"));
   });
 
   /*document.getElementById("btn_play").addEventListener("click", function() {
@@ -104,7 +104,7 @@ function init() {
   });
 
   document.getElementById("btn_pause").addEventListener("click", function() {
-    let clipe = clipes.find(clipe => clipe.name === "Rotation");
+    let clipe = clipes.find(clipe => clipe.name === "rotation");
     mixer.clipAction(clipe).paused = !mixer.clipAction(clipe).paused;
   });
 
