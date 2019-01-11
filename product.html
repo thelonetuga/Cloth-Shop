@@ -14,39 +14,38 @@
   <link rel="stylesheet" type="text/css" href="styles/product_responsive.css" />
 </head>
 
-<body>
-  <div class="super_container">
-    <!-- Header -->
-
-    <header class="header">
-      <div class="header_inner d-flex flex-row align-items-center justify-content-start">
-        <div class="logo"><a href="#">Laredoute</a></div>
-        <nav class="main_nav">
-          <ul>
-            <li><a>home</a></li>
-            <li><a>clothes</a></li>
-            <li><a>accessories</a></li>
-            <li><a>lingerie</a></li>
-            <li><a>contact</a></li>
-          </ul>
-        </nav>
-        <div class="header_content ml-auto">
-          <div class="search header_search">
-            <form action="#">
-              <input type="search" class="search_input" required="required" />
-              <button type="submit" id="search_button" class="search_button">
-                <img src="images/magnifying-glass.svg" alt="" />
-              </button>
-            </form>
-          </div>
-          <div class="shopping">
-            <!-- Cart -->
-            <a href="#">
-              <div class="cart">
-                <img src="images/shopping-bag.svg" alt="" />
-                <div class="cart_num_container">
-                  <div class="cart_num_inner">
-                    <div class="cart_num">1</div>
+      <header class="header">
+        <div
+          class="header_inner d-flex flex-row align-items-center justify-content-start"
+        >
+          <div class="logo"><a href="index.html">Laredoute</a></div>
+          <nav class="main_nav">
+            <ul>
+              <li><a>home</a></li>
+              <li><a>clothes</a></li>
+              <li><a>accessories</a></li>
+              <li><a>lingerie</a></li>
+              <li><a>contact</a></li>
+            </ul>
+          </nav>
+          <div class="header_content ml-auto">
+            <div class="search header_search">
+              <form action="#">
+                <input type="search" class="search_input" required="required" />
+                <button type="submit" id="search_button" class="search_button">
+                  <img src="images/magnifying-glass.svg" alt="" />
+                </button>
+              </form>
+            </div>
+            <div class="shopping">
+              <!-- Cart -->
+              <a href="#">
+                <div class="cart">
+                  <img src="images/shopping-bag.svg" alt="" />
+                  <div class="cart_num_container">
+                    <div class="cart_num_inner">
+                      <div class="cart_num">1</div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -145,14 +144,36 @@
               </ul>
             </div>
           </div>
-        </div>
-        <div class="row product_row">
-          <!-- Product Image -->
-          <div class="col-lg-7">
-            <div class="product_image">
-              <div id="container" class="product_image_large">
-                <canvas id="canvasss"></canvas>
-                <!--img src="images/product_image_1.jpg" alt="" /> -->
+          <div class="row product_row">
+            <!-- Product Image -->
+            <div class="col-lg-7">
+              <div class="product_image">
+                <div id="container" class="product_image_large">
+                  <canvas id="canvasss"></canvas>
+                  <!--img src="images/product_image_1.jpg" alt="" /> -->
+                </div>
+                <div class="button cart_button">
+                  <a href="product_jacket.html">See Jacket</a>
+                </div>
+                <div
+                  class="product_image_thumbnails d-flex flex-row align-items-start justify-content-start"
+                >
+                  <div
+                    class="product_image_thumbnail"
+                    style="background-image:url(./blender/Skirt/image_site_5.jpg)"
+                    data-image="images/product_image_4.jpg"
+                  ></div>
+                  <div
+                    class="product_image_thumbnail"
+                    style="background-image:url(./blender/Skirt/image_site_1.jpg)"
+                    data-image="images/product_image_1.jpg"
+                  ></div>
+                  <div
+                    class="product_image_thumbnail"
+                    style="background-image:url(./blender/Skirt/image_site_2.jpg)"
+                    data-image="images/product_image_2.jpg"
+                  ></div>
+                </div>
               </div>
               <div class="button cart_button">
                 <a href="product_jacket.html">See Jacket</a>
@@ -168,15 +189,71 @@
             </div>
           </div>
 
-          <!-- Product Content -->
-          <div class="col-lg-5">
-            <div class="product_content">
-              <div class="product_name">Skirt</div>
-              <div class="product_price">€35.00</div>
-              <div class="rating rating_4" data-rating="4">
-                <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
+            <!-- Product Content -->
+            <div class="col-lg-5">
+              <div class="product_content">
+                <div class="product_name">Skirt</div>
+                <div class="product_price">€35.00</div>
+                <div class="rating rating_4" data-rating="4">
+                  <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                </div>
+                <!-- In Stock -->
+                <div class="in_stock_container">
+                  <div class="in_stock in_stock_true"></div>
+                  <span>in stock</span>
+                </div>
+
+                <div class="sorting">
+                  <ul class="item_sorting">
+                    <li>
+                      <span class="sorting_text">Color</span>
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                      <ul>
+                        <li
+                          class="product_sorting_btn"
+                          data-isotope-option="{ 'color': 'textured' }"
+                        >
+                          <span>Textured</span>
+                        </li>
+                        <li
+                          class="product_sorting_btn"
+                          data-isotope-option="{ 'color': 'red'}"
+                        >
+                          <span>Red</span>
+                        </li>
+                        <li
+                          class="product_sorting_btn"
+                          data-isotope-option="{ 'color': 'yellow' }"
+                        >
+                          <span>Yellow</span>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="product_text">
+                  <p>
+                    <b>Detalhes do artigo</b><br />
+                    • Modelo: direito<br />
+                    • Curto<br />
+                    • Motivo jacquard<br /><br /><b>Composição e cuidados</b
+                    ><br />
+                    • 70% poliéster, 27% algodão, 3% elastano<br />
+                    • Temperatura de lavagem a 30°, ciclo delicado<br />
+                    • Passar a ferro com temperatura baixa / não usar lixívia<br />
+                    • Não secar na máquina<br />
+                    • Não limpar a seco<br />
+                  </p>
+                  <button class="button cart_button" id="btn_play">
+                    <i class="fas fa-undo"></i>
+                  </button>
+                  <button class="button cart_button" id="btn_pause">
+                    <i class="fas fa-pause"></i>
+                  </button>
+                </div>
               </div>
               <!-- In Stock -->
               <div class="in_stock_container">
@@ -229,16 +306,21 @@
     </footer>
   </div>
 
-  <script src="js/jquery-3.2.1.min.js"></script>
-  <script src="styles/bootstrap4/popper.js"></script>
-  <script src="styles/bootstrap4/bootstrap.min.js"></script>
-  <script src="plugins/easing/easing.js"></script>
-  <script src="plugins/parallax-js-master/parallax.min.js"></script>
-  <script src="js/product_custom.js"></script>
-  <script src="js/three.js"></script>
-  <script src="js/GLTFLoader.js"></script>
-  <script src="js/OrbitControls.js"></script>
-  <script src="js/main.js"></script>
-</body>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="styles/bootstrap4/popper.js"></script>
+    <script src="styles/bootstrap4/bootstrap.min.js"></script>
+    <script src="plugins/easing/easing.js"></script>
+    <script src="plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="js/product_custom.js"></script>
+    <script src="js/three.js"></script>
+    <script src="js/GLTFLoader.js"></script>
+    <script src="js/OrbitControls.js"></script>
+    <script src="js/main.js"></script>
+    <script src="plugins/Isotope/isotope.pkgd.min.js"></script>
+    <script src="plugins/malihu-custom-scrollbar/jquery.mCustomScrollbar.js"></script>
+    <script src="plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <script src="js/categories_custom.js"></script>
+  </body>
+</html>
 
 </html>

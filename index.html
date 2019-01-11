@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>LaRedoute</title>
+    <title>Wish</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="Wish shop project" />
@@ -16,29 +16,45 @@
       rel="stylesheet"
       type="text/css"
     />
-    <link rel="stylesheet" type="text/css" href="styles/product.css" />
     <link
       rel="stylesheet"
       type="text/css"
-      href="styles/product_responsive.css"
+      href="plugins/OwlCarousel2-2.2.1/owl.carousel.css"
     />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="plugins/OwlCarousel2-2.2.1/animate.css"
+    />
+    <link
+      href="plugins/colorbox/colorbox.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" type="text/css" href="styles/main_styles.css" />
+    <link rel="stylesheet" type="text/css" href="styles/responsive.css" />
   </head>
-
   <body>
     <div class="super_container">
       <!-- Header -->
+
       <header class="header">
         <div
           class="header_inner d-flex flex-row align-items-center justify-content-start"
         >
-          <div class="logo"><a href="index.html">Laredoute</a></div>
+          <div class="logo"><a href="#">Laredoute</a></div>
           <nav class="main_nav">
             <ul>
-              <li><a>home</a></li>
-              <li><a>clothes</a></li>
-              <li><a>accessories</a></li>
-              <li><a>lingerie</a></li>
-              <li><a>contact</a></li>
+              <li><a href="#">home</a></li>
+              <li><a href="categories.html">clothes</a></li>
+              <li><a href="categories.html">accessories</a></li>
+              <li><a href="categories.html">lingerie</a></li>
+              <li><a href="contact.html">contact</a></li>
             </ul>
           </nav>
           <div class="header_content ml-auto">
@@ -129,27 +145,69 @@
         </nav>
       </div>
 
-      <!-- Home -->
+      <!-- Featured Products -->
 
-      <div class="home">
-        <div
-          class="home_background parallax-window"
-          data-parallax="scroll"
-          data-image-src="images/product.jpg"
-          data-speed="0.8"
-        ></div>
+      <div class="arrivals">
         <div class="container">
           <div class="row">
             <div class="col">
-              <div class="home_container">
-                <div class="home_content">
-                  <div class="home_title">Woman</div>
-                  <div class="breadcrumbs">
-                    <ul>
-                      <li><a href="#">Home</a></li>
-                      <li>Woman</li>
-                      <li>Jacket</li>
-                    </ul>
+              <div class="section_title_container text-center">
+                <div class="section_title">featured products</div>
+              </div>
+            </div>
+          </div>
+          <div class="row products_container">
+            <!-- Product -->
+            <div class="col">
+              <div class="product">
+                <div class="product_image">
+                  <img src="./blender/Skirt/image_site_2.jpg" alt="" />
+                </div>
+                <div class="rating rating_4">
+                  <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                </div>
+                <div class="product_content clearfix">
+                  <div class="product_info">
+                    <div class="product_name">
+                      <a href="product.html">Woman's Skirt</a>
+                    </div>
+                    <div class="product_price">€35.00</div>
+                  </div>
+                  <div class="product_options">
+                    <div class="product_buy product_option">
+                      <img src="images/shopping-bag-white.svg" alt="" />
+                    </div>
+                    <div class="product_fav product_option">+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product -->
+            <div class="col">
+              <div class="product">
+                <div class="product_image">
+                  <img src="./blender/BlueJacket/image_site_1.jpg" alt="" />
+                </div>
+                <div class="rating rating_4">
+                  <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                </div>
+                <div class="product_content clearfix">
+                  <div class="product_info">
+                    <div class="product_name">
+                      <a href="product_jacket.html">Blue Jacket</a>
+                    </div>
+                    <div class="product_price">€65.00</div>
+                  </div>
+                  <div class="product_options">
+                    <div class="product_buy product_option">
+                      <img src="images/shopping-bag-white.svg" alt="" />
+                    </div>
+                    <div class="product_fav product_option">+</div>
                   </div>
                 </div>
               </div>
@@ -158,83 +216,35 @@
         </div>
       </div>
 
-      <!-- Product -->
+      <!-- Footer -->
 
-      <div class="product">
+      <footer class="footer">
         <div class="container">
           <div class="row">
-            <div class="col">
-              <div class="current_page">
+            <div class="col text-center">
+              <div class="footer_logo"><a href="#">LaRedoute</a></div>
+              <nav class="footer_nav">
                 <ul>
-                  <li><a href="#">Woman's Fashion</a></li>
-                  <li><a href="#">Jacket</a></li>
-                  <li>Blue</li>
+                  <li><a href="#">home</a></li>
+                  <li><a href="#">clothes</a></li>
+                  <li><a href="#">accessories</a></li>
+                  <li><a href="#">lingerie</a></li>
+                  <li><a href="#">contact</a></li>
                 </ul>
-              </div>
-            </div>
-          </div>
-          <div class="row product_row">
-            <!-- Product Image -->
-            <div class="col-lg-7">
-              <div class="product_image">
-                <div id="container" class="product_image_large">
-                  <canvas id="canvasss"></canvas>
-                  <!--img src="images/product_image_1.jpg" alt="" /> -->
-                </div>
-                <div class="button cart_button">
-                  <a href="product.html">See Skirt</a>
-                </div>
-                <div
-                  class="product_image_thumbnails d-flex flex-row align-items-start justify-content-start"
-                >
-                  <div
-                    class="product_image_thumbnail"
-                    style="background-image:url(./blender/BlueJacket/blueJacket_Front3.JPG)"
-                    data-image="./blender/BlueJacket/blueJacket_Front3.JPG"
-                  ></div>
-                  <div
-                    class="product_image_thumbnail"
-                    style="background-image:url(./blender/BlueJacket/blueJacket_Front5.JPG)"
-                    data-image="./blender/BlueJacket/blueJacket_Front2.JPG"
-                  ></div>
-                  <div
-                    class="product_image_thumbnail"
-                    style="background-image:url(./blender/BlueJacket/blueJacket_Front1.JPG)"
-                    data-image="./blender/Blue Jacket/blueJacket_Front1.JPG"
-                  ></div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Product Content -->
-            <div class="col-lg-5">
-              <div class="product_content">
-                <div class="product_name">Casaco Azul</div>
-                <div class="product_price">€65.00</div>
-                <!-- In Stock -->
-                <div class="product_text">
-                  <p>Casaco azul em tecido chinês</p>
-                </div>
-                <button class="button cart_button" id="buttonPlay">Play</button>
-                <button class="button cart_button" id="buttonPause">
-                  Pause
-                </button>
-              </div>
+              </nav>
             </div>
           </div>
         </div>
-      </div>
+      </footer>
     </div>
 
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="styles/bootstrap4/popper.js"></script>
     <script src="styles/bootstrap4/bootstrap.min.js"></script>
+    <script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
     <script src="plugins/easing/easing.js"></script>
     <script src="plugins/parallax-js-master/parallax.min.js"></script>
-    <script src="js/product_custom.js"></script>
-    <script src="js/three.js"></script>
-    <script src="js/GLTFLoader.js"></script>
-    <script src="js/OrbitControls.js"></script>
-    <script src="js/jacket.js"></script>
+    <script src="plugins/colorbox/jquery.colorbox-min.js"></script>
+    <script src="js/custom.js"></script>
   </body>
 </html>

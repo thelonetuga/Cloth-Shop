@@ -64,7 +64,7 @@ function init() {
   mixer = new THREE.AnimationMixer(scene);
 
   loader = new THREE.GLTFLoader();
-  loader.load("../models/Jacket_animacoes_textura.gltf", function(gltf) {
+  loader.load("./models/Jacket_anim_rotation.gltf", function(gltf) {
     scene.add(gltf.scene);
     scene.traverse(function(x) {
       if (x.isMesh) {
@@ -106,7 +106,7 @@ function init() {
   /*controls.target.set(3, 0, -3);
     controls.update();*/
 
-  let ambientLight = new THREE.AmbientLight("white", 0.4);
+  let ambientLight = new THREE.AmbientLight("white", 1);
   scene.add(ambientLight);
   let luzPonto1 = new THREE.PointLight("white");
   luzPonto1.position.set(5, 3, 5);
