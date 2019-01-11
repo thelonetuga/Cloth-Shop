@@ -87,21 +87,21 @@ function init() {
     clipes.push(THREE.AnimationClip.findByName(gltf.animations, "rotation"));
   });
 
-  /*document.getElementById("btn_play").addEventListener("click", function() {
+  document.getElementById("btn_play").addEventListener("click", function() {
     let clipe = clipes.find(clipe => clipe.name === "Rotation");
     mixer.clipAction(clipe).setLoop(THREE.LoopPingPong);
     mixer.clipAction(clipe).play();
     mixer.clipAction(clipe).paused = false;
     mixer.clipAction(clipe).timeScale = 1;
-  });*/
-  document.getElementById("btn_play").addEventListener("click", function() {
+  });
+  /*document.getElementById("btn_play").addEventListener("click", function() {
     clipes.forEach(clipe => {
       mixer.clipAction(clipe).setLoop(THREE.LoopPingPong);
       mixer.clipAction(clipe).play();
       mixer.clipAction(clipe).paused = false;
       mixer.clipAction(clipe).timeScale = 1;
     });
-  });
+  });*/
 
   document.getElementById("btn_pause").addEventListener("click", function() {
     let clipe = clipes.find(clipe => clipe.name === "rotation");
@@ -146,8 +146,6 @@ function init() {
 function changeColor(colorN) {
   let alvo = scene.getObjectByName("Cylinder");
   let material;
-  console.log(colorN);
-  console.log(alvo);
   if (colorN === "texture") {
     alvo.material = texture.clone();
   } else {

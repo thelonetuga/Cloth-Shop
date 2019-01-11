@@ -9,8 +9,8 @@ let controls;
 let clock;
 let mixer;
 let clipes;
-let clipesRotacao;
-let cQuaternion;
+let clipeRotacao;
+let texture;
 
 init();
 animate();
@@ -21,7 +21,6 @@ function init() {
   var acaoMover = null;
 
   clipes = [];
-  clipesRotacao = [];
 
   scene = new THREE.Scene();
   let container = document.getElementById("container");
@@ -64,7 +63,7 @@ function init() {
   mixer = new THREE.AnimationMixer(scene);
 
   loader = new THREE.GLTFLoader();
-  loader.load("./models/Jacket_anim_rotation.gltf", function(gltf) {
+  loader.load("./models/Jacket_animacoes_textura.gltf", function(gltf) {
     scene.add(gltf.scene);
     scene.traverse(function(x) {
       if (x.isMesh) {
@@ -72,7 +71,10 @@ function init() {
         x.castShadow = true;
         x.receiveShadow = true;
         x.scale.set(7, 7, 7);
-        //console.log(x);
+        if (x.name === "Cube") {
+          x.material.color = new THREE.Color(1, 1, 1);
+          texture = x.material.clone();
+        }
       }
     });
     clipes.push(THREE.AnimationClip.findByName(gltf.animations, "KeyAction"));
@@ -82,23 +84,19 @@ function init() {
       mixer.clipAction(clipe).timeScale = 1;
     });
 
-    clipesRotacao.push(
-      THREE.AnimationClip.findByName(gltf.animations, "rotacao")
-    );
-    clipesRotacao.forEach(clipe => {
-      //mixer.clipAction(clipe).play();
-      mixer.clipAction(clipe).paused = false;
-      mixer.clipAction(clipe).timeScale = 1;
-      acaoMover = mixer.clipAction(clipe);
-    });
+    clipeRotacao = THREE.AnimationClip.findByName(gltf.animations, "rotacao");
   });
 
   document.getElementById("buttonPlay").onclick = function() {
-    acaoMover.play();
+    mixer.clipAction(clipeRotacao).setLoop(THREE.LoopPingPong);
+    mixer.clipAction(clipeRotacao).play();
+    mixer.clipAction(clipeRotacao).paused = false;
+    mixer.clipAction(clipeRotacao).timeScale = 1;
   };
 
   document.getElementById("buttonPause").onclick = function() {
-    acaoMover.paused = !acaoMover.paused;
+    mixer.clipAction(clipeRotacao).paused = !mixer.clipAction(clipeRotacao)
+      .paused;
   };
 
   controls = new THREE.OrbitControls(camera, renderer.domElement);
@@ -108,10 +106,42 @@ function init() {
 
   let ambientLight = new THREE.AmbientLight("white", 1);
   scene.add(ambientLight);
-  let luzPonto1 = new THREE.PointLight("white");
-  luzPonto1.position.set(5, 3, 5);
-  luzPonto1.castShadow = true;
+  let luzPonto1 = new THREE.SpotLight("white", 2, 200, 1.05, 0.25, 1);
+  luzPonto1.position.set(0, 3, 3);
+  luzPonto1.castShadow = false;
+  luzPonto1.shadow.mapSize.width = 1024;
+  luzPonto1.shadow.mapSize.height = 1024;
+
+  luzPonto1.shadow.camera.near = 500;
+  luzPonto1.shadow.camera.far = 4000;
+  luzPonto1.shadow.camera.fov = 30;
   scene.add(luzPonto1);
+
+  var sortingButtons = $(".product_sorting_btn");
+  sortingButtons.each(function() {
+    $(this).on("click", function() {
+      var parent = $(this)
+        .parent()
+        .parent()
+        .find(".sorting_text");
+      parent.text($(this).text());
+      var option = $(this).attr("data-isotope-option");
+      option = JSON.parse(option);
+      changeColor(option.color);
+    });
+  });
+}
+
+function changeColor(colorN) {
+  let alvo = scene.getObjectByName("Cube");
+  let material;
+  if (colorN === "texture") {
+    alvo.material = texture.clone();
+  } else {
+    let color = new THREE.Color(colorN);
+    alvo.material.color = color;
+    /*material = new THREE.MeshStandardMaterial({ color: color });*/
+  }
 }
 
 function animate() {

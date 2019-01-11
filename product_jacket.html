@@ -12,9 +12,10 @@
       href="styles/bootstrap4/bootstrap.min.css"
     />
     <link
-      href="plugins/font-awesome-4.7.0/css/font-awesome.min.css"
       rel="stylesheet"
-      type="text/css"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+      crossorigin="anonymous"
     />
     <link rel="stylesheet" type="text/css" href="styles/product.css" />
     <link
@@ -212,12 +213,48 @@
                 <div class="product_name">Casaco Azul</div>
                 <div class="product_price">€65.00</div>
                 <!-- In Stock -->
+                <div class="sorting">
+                  <ul class="item_sorting">
+                    <li>
+                      <span class="sorting_text">Color</span>
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                      <ul>
+                        <li
+                          class="product_sorting_btn"
+                          data-isotope-option="{ &quot;color&quot;: &quot;texture&quot; }"
+                        >
+                          <span>Original</span>
+                        </li>
+                        <li
+                          class="product_sorting_btn"
+                          data-isotope-option="{ &quot;color&quot;: &quot;grey&quot; }"
+                        >
+                          <span>Grey</span>
+                        </li>
+                        <li
+                          class="product_sorting_btn"
+                          data-isotope-option="{ &quot;color&quot;: &quot;brown&quot; }"
+                        >
+                          <span>Brown</span>
+                        </li>
+                        <li
+                          class="product_sorting_btn"
+                          data-isotope-option="{ &quot;color&quot;: &quot;#89cff0&quot; }"
+                        >
+                          <span>Baby Blue</span>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
                 <div class="product_text">
                   <p>Casaco azul em tecido chinês</p>
                 </div>
-                <button class="button cart_button" id="buttonPlay">Play</button>
+                <button class="button cart_button" id="buttonPlay">
+                  <i class="fas fa-undo"></i>
+                </button>
                 <button class="button cart_button" id="buttonPause">
-                  Pause
+                  <i class="fas fa-pause"></i>
                 </button>
               </div>
             </div>
