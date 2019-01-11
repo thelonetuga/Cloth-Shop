@@ -69,7 +69,7 @@ function init() {
   mixer = new THREE.AnimationMixer(scene);
 
   loader = new THREE.GLTFLoader();
-  loader.load("../models/New_Skirt.gltf", function(gltf) {
+  loader.load("../models/Skirt_NewVersion1.gltf", function(gltf) {
     scene.add(gltf.scene);
 
     scene.traverse(function(x) {
@@ -92,11 +92,11 @@ function init() {
       mixer.clipAction(clipe).paused = false;
       mixer.clipAction(clipe).timeScale = 1;
     });
-    clipes.push(THREE.AnimationClip.findByName(gltf.animations, "Rotation"));
+    clipes.push(THREE.AnimationClip.findByName(gltf.animations, "rotation"));
   });
 
   document.getElementById("btn_play").addEventListener("click", function() {
-    let clipe = clipes.find(clipe => clipe.name === "Rotation");
+    let clipe = clipes.find(clipe => clipe.name === "rotation");
     mixer.clipAction(clipe).setLoop(THREE.LoopPingPong);
     mixer.clipAction(clipe).play();
     mixer.clipAction(clipe).paused = false;
@@ -104,7 +104,7 @@ function init() {
   });
 
   document.getElementById("btn_pause").addEventListener("click", function() {
-    let clipe = clipes.find(clipe => clipe.name === "Rotation");
+    let clipe = clipes.find(clipe => clipe.name === "rotation");
     mixer.clipAction(clipe).paused = !mixer.clipAction(clipe).paused;
   });
 
