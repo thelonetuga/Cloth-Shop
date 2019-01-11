@@ -36,10 +36,6 @@ function init() {
   camera.position.y = 2.3751014441331466;
   camera.position.z = 5.62857344526669;
 
-
-
-
-
   /*camera.lookAt(0, 0, 0);
     /*camera.position.copy(cPosition);*/
   /*camera.rotation.copy(cRotation);
@@ -68,9 +64,9 @@ function init() {
   mixer = new THREE.AnimationMixer(scene);
 
   loader = new THREE.GLTFLoader();
-  loader.load("../models/Jacket_anim_rotation.gltf", function (gltf) {
+  loader.load("../models/Jacket_anim_rotation.gltf", function(gltf) {
     scene.add(gltf.scene);
-    scene.traverse(function (x) {
+    scene.traverse(function(x) {
       if (x.isMesh) {
         gltf.scene.position.set(0, -1.3, 0);
         x.castShadow = true;
@@ -86,7 +82,9 @@ function init() {
       mixer.clipAction(clipe).timeScale = 1;
     });
 
-    clipesRotacao.push(THREE.AnimationClip.findByName(gltf.animations, "rotacao"));
+    clipesRotacao.push(
+      THREE.AnimationClip.findByName(gltf.animations, "rotacao")
+    );
     clipesRotacao.forEach(clipe => {
       //mixer.clipAction(clipe).play();
       mixer.clipAction(clipe).paused = false;
@@ -95,20 +93,20 @@ function init() {
     });
   });
 
-  document.getElementById('buttonPlay').onclick = function () {
-    acaoMover.play()
-  }
+  document.getElementById("buttonPlay").onclick = function() {
+    acaoMover.play();
+  };
 
-  document.getElementById('buttonPause').onclick = function () {
-    acaoMover.paused = !acaoMover.paused
-  }
+  document.getElementById("buttonPause").onclick = function() {
+    acaoMover.paused = !acaoMover.paused;
+  };
 
   controls = new THREE.OrbitControls(camera, renderer.domElement);
   controls.enableZoom = false;
   /*controls.target.set(3, 0, -3);
     controls.update();*/
 
-  let ambientLight = new THREE.AmbientLight("white", 0.4);
+  let ambientLight = new THREE.AmbientLight("white", 1);
   scene.add(ambientLight);
   let luzPonto1 = new THREE.PointLight("white");
   luzPonto1.position.set(5, 3, 5);

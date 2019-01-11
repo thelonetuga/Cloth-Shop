@@ -33,7 +33,7 @@
         <div
           class="header_inner d-flex flex-row align-items-center justify-content-start"
         >
-          <div class="logo"><a href="#">Laredoute</a></div>
+          <div class="logo"><a href="index.html">Laredoute</a></div>
           <nav class="main_nav">
             <ul>
               <li><a>home</a></li>
@@ -191,18 +191,18 @@
                 >
                   <div
                     class="product_image_thumbnail"
-                    style="background-image:url(images/product_image_1.jpg)"
+                    style="background-image:url(./../blender/Skirt/image_site_5.jpg)"
+                    data-image="images/product_image_4.jpg"
+                  ></div>
+                  <div
+                    class="product_image_thumbnail"
+                    style="background-image:url(./../blender/Skirt/image_site_1.jpg)"
                     data-image="images/product_image_1.jpg"
                   ></div>
                   <div
                     class="product_image_thumbnail"
-                    style="background-image:url(images/product_image_2.jpg)"
+                    style="background-image:url(./../blender/Skirt/image_site_2.jpg)"
                     data-image="images/product_image_2.jpg"
-                  ></div>
-                  <div
-                    class="product_image_thumbnail"
-                    style="background-image:url(images/product_image_4.jpg)"
-                    data-image="images/product_image_4.jpg"
                   ></div>
                 </div>
               </div>
@@ -223,6 +223,36 @@
                   <div class="in_stock in_stock_true"></div>
                   <span>in stock</span>
                 </div>
+
+                <div class="sorting">
+                  <ul class="item_sorting">
+                    <li>
+                      <span class="sorting_text">Color</span>
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                      <ul>
+                        <li
+                          class="product_sorting_btn"
+                          data-isotope-option="{ 'color': 'textured' }"
+                        >
+                          <span>Textured</span>
+                        </li>
+                        <li
+                          class="product_sorting_btn"
+                          data-isotope-option="{ 'color': 'red'}"
+                        >
+                          <span>Red</span>
+                        </li>
+                        <li
+                          class="product_sorting_btn"
+                          data-isotope-option="{ 'color': 'yellow' }"
+                        >
+                          <span>Yellow</span>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+
                 <div class="product_text">
                   <p>
                     <b>Detalhes do artigo</b><br />
@@ -280,5 +310,9 @@
     <script src="js/GLTFLoader.js"></script>
     <script src="js/OrbitControls.js"></script>
     <script src="js/main.js"></script>
+    <script src="plugins/Isotope/isotope.pkgd.min.js"></script>
+    <script src="plugins/malihu-custom-scrollbar/jquery.mCustomScrollbar.js"></script>
+    <script src="plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <script src="js/categories_custom.js"></script>
   </body>
 </html>

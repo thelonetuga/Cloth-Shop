@@ -9,7 +9,6 @@ let controls;
 let clock;
 let mixer;
 let clipes;
-let cQuaternion;
 
 init();
 animate();
@@ -24,18 +23,6 @@ function init() {
   let container = document.getElementById("container");
   console.log($(container).width(), $(container).height());
   camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
-  let cPosition = new THREE.Vector3(
-    -1.799065584953647,
-    0.19784399751744292,
-    4.535197649362167
-  );
-  let cRotation = new THREE.Euler(
-    -0.1050856119770399,
-    -0.08331580366530747,
-    -0.008777274893087297,
-    "XYZ"
-  );
-  console.log(cQuaternion);
 
   camera.rotation.x = -0.2934582188044254;
   camera.rotation.y = -0.04009912508635147;
@@ -113,12 +100,22 @@ function init() {
   /*controls.target.set(3, 0, -3);
   controls.update();*/
 
-  let ambientLight = new THREE.AmbientLight("white", 1);
+  let ambientLight = new THREE.AmbientLight("white", 0.6);
   scene.add(ambientLight);
-  let luzPonto1 = new THREE.PointLight("white");
-  luzPonto1.position.set(5, 3, 5);
-  luzPonto1.castShadow = true;
+  let luzPonto1 = new THREE.SpotLight("white", 1, 200, 1.05, 0.25, 1);
+  luzPonto1.position.set(0, 3, 3);
+  luzPonto1.castShadow = false;
+  luzPonto1.shadow.mapSize.width = 1024;
+  luzPonto1.shadow.mapSize.height = 1024;
+
+  luzPonto1.shadow.camera.near = 500;
+  luzPonto1.shadow.camera.far = 4000;
+  luzPonto1.shadow.camera.fov = 30;
   scene.add(luzPonto1);
+
+  var pointLightHelper = new THREE.SpotLightHelper(luzPonto1, 1, "green");
+  scene.add(pointLightHelper);
+  var option = $(this).attr("data-isotope-option");
 }
 
 function animate() {
