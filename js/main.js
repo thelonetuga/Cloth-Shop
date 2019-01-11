@@ -85,7 +85,6 @@ function init() {
       }
     });
     clipes.push(THREE.AnimationClip.findByName(gltf.animations, "KeyAction"));
-    clipes.push(THREE.AnimationClip.findByName(gltf.animations, "Rotate"));
     let plane = scene.getObjectByName("Plane");
     clipes.forEach(clipe => {
       mixer.clipAction(clipe).setLoop(THREE.LoopPingPong);
@@ -93,6 +92,20 @@ function init() {
       mixer.clipAction(clipe).paused = false;
       mixer.clipAction(clipe).timeScale = 1;
     });
+    clipes.push(THREE.AnimationClip.findByName(gltf.animations, "Rotate"));
+  });
+
+  document.getElementById("btn_play").addEventListener("click", function() {
+    let clipe = clipes.find(clipe => clipe.name === "Rotate");
+    mixer.clipAction(clipe).setLoop(THREE.LoopPingPong);
+    mixer.clipAction(clipe).play();
+    mixer.clipAction(clipe).paused = false;
+    mixer.clipAction(clipe).timeScale = 1;
+  });
+
+  document.getElementById("btn_pause").addEventListener("click", function() {
+    let clipe = clipes.find(clipe => clipe.name === "Rotate");
+    mixer.clipAction(clipe).paused = !mixer.clipAction(clipe).paused;
   });
 
   controls = new THREE.OrbitControls(camera, renderer.domElement);
