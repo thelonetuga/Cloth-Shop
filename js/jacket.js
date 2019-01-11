@@ -10,7 +10,7 @@ let clock;
 let mixer;
 let clipes;
 let clipeRotacao;
-let texture;
+let textures;
 
 init();
 animate();
@@ -21,6 +21,7 @@ function init() {
   var acaoMover = null;
 
   clipes = [];
+  textures = [];
 
   scene = new THREE.Scene();
   let container = document.getElementById("container");
@@ -72,8 +73,8 @@ function init() {
         x.receiveShadow = true;
         x.scale.set(7, 7, 7);
         if (x.name === "Cube") {
+          textures.unshift(x.material.map);
           x.material.color = new THREE.Color(1, 1, 1);
-          texture = x.material.clone();
         }
       }
     });
@@ -130,13 +131,39 @@ function init() {
       changeColor(option.color);
     });
   });
+
+  var textureButtons = $(".product_texture_btn");
+  textureButtons.each(function() {
+    $(this).on("click", function() {
+      var parent = $(this)
+        .parent()
+        .parent()
+        .find(".texture_text");
+      parent.text($(this).text());
+      var option = $(this).attr("data-isotope-option");
+      option = JSON.parse(option);
+      console.log(option);
+      changeTexture(option.texture);
+    });
+  });
+  textures.push(
+    new THREE.TextureLoader().load("./models/texture_jacket_1.jpg")
+  );
+  textures.push(
+    new THREE.TextureLoader().load("./models/texture_jacket_2.jpg")
+  );
+}
+
+function changeTexture(textureN) {
+  let alvo = scene.getObjectByName("Cube");
+  alvo.material.map = textures[textureN];
 }
 
 function changeColor(colorN) {
   let alvo = scene.getObjectByName("Cube");
   let material;
   if (colorN === "texture") {
-    alvo.material = texture.clone();
+    alvo.material.color = new THREE.Color(1, 1, 1);
   } else {
     let color = new THREE.Color(colorN);
     alvo.material.color = color;
