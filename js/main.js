@@ -58,7 +58,7 @@ function init() {
   mixer = new THREE.AnimationMixer(scene);
 
   loader = new THREE.GLTFLoader();
-  loader.load("./models/New_Skirt.gltf", function(gltf) {
+  loader.load("./models/FinalSkirt.gltf", function(gltf) {
     scene.add(gltf.scene);
 
     scene.traverse(function(x) {
